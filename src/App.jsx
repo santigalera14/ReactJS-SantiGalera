@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import './App.css';
 import { Button } from './components/button'  
-import { NavBar } from './components/NavBar';
+import  NavBar  from './components/NavBar/NavBar';
+import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 
 export function App({valorInicial}) {
   
@@ -15,7 +16,8 @@ export function App({valorInicial}) {
 
   return (
     <div className='app-containter'>
-      <NavBar />
+      <NavBar /> 
+      <ItemListContainer greeting={'Bienvenidos'}/>  
       <h1>Valor: <strong>{ contador }</strong></h1>
       <Button 
         aumentaContador={aumentaContador}
