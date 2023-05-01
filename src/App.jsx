@@ -1,28 +1,24 @@
-import { useState } from 'react';
 import './App.css';
-import { Button } from './components/button'  
 import  NavBar  from './components/NavBar/NavBar';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
+import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 export function App({valorInicial}) {
-  
   console.log({valorInicial});
 
-  const [contador, setContador] = useState(valorInicial)
-
-  const aumentaContador = () => {
-    setContador(contador + 1)
-  }
 
   return (
     <div className='app-containter'>
-      <NavBar /> 
-      <ItemListContainer greeting={'Bienvenidos'}/>  
-      <h1>Valor: <strong>{ contador }</strong></h1>
-      <Button 
-        aumentaContador={aumentaContador}
-        text={"+1"}
-      />
+      <BrowserRouter>
+        <NavBar />
+        <Routes>
+         <Route path='/' element={<ItemListContainer/>} />
+          <Route path='/category/:categoryId' element={<ItemListContainer/>} />
+          <Route path='/item/:itemId' element={<ItemDetailContainer/>} />
+          <Route path='*' element={<h1>404 NOT FOUND</h1>} />
+       </Routes>
+      </BrowserRouter>
     </div>
   );
 }

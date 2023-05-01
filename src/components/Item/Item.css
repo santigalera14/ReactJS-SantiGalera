@@ -1,0 +1,6 @@
+.CardItem {
+    max-width: 30%;
+    padding: 10px;
+    border-radius: 15px;
+    box-shadow: rgb(255, 0, 225) 0px 5px 15px 0px;
+  }
